@@ -5,42 +5,106 @@
     box-sizing: border-box;
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 1.6;
     color: #333;
-    background: #f5f5f5;
+    background: #e2e2e2;
     -webkit-font-smoothing: antialiased;
+    background-image: 
+        repeating-linear-gradient(45deg, 
+            rgba(255,255,255, 0.1) 0px,
+            rgba(255,255,255, 0.1) 1px,
+            transparent 1px,
+            transparent 3px
+        ),
+        linear-gradient(to bottom, #e8e8e8 0%, #d8d8d8 100%);
+    background-attachment: fixed;
+    padding: 0 min(5vw, 40px);
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background: 
+        radial-gradient(circle at 50% 50%, 
+            rgba(255,255,255,0.1) 0%,
+            rgba(255,255,255,0) 60%);
+    pointer-events: none;
 }
 
 .container {
+    flex: 1;
+    width: 100%;
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0;
+    position: relative;
+    background: #fff;
+    box-shadow: 
+        1px 0 0 rgba(0,0,0,0.1),
+        -1px 0 0 rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    min-width: 320px; /* Ensure minimum width for content */
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    padding: 0 40px;
 }
 
 header {
     text-align: center;
-    padding: 40px 0;
-    background: linear-gradient(to bottom, #666666 0%, #444444 100%);
-    border-bottom: 1px solid #000;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    background: #fff;
+    padding: 80px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.header-logo {
+    width: 120px;
+    height: 120px;
+}
+
+.header-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.header-text {
+    text-align: left;
 }
 
 .logo {
-    font-size: 32px;
-    font-weight: 500;
+    font-size: 42px;
+    font-weight: 600;
     letter-spacing: -1px;
-    color: #fff;
-    margin-bottom: 10px;
-    text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
+    color: #000;
+    margin-bottom: 8px;
+    line-height: 1;
 }
 
 .tagline {
-    font-size: 18px;
-    color: #ccc;
+    font-size: 20px;
+    color: #555;
     font-weight: 300;
-    text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
 }
 
 .apps {
@@ -50,15 +114,19 @@ header {
     padding: 40px 0;
     max-width: 600px;
     margin: 0 auto;
+    position: relative;
 }
 
 .app-card {
-    background: linear-gradient(to bottom, #ffffff 0%, #f2f2f2 100%);
+    background: linear-gradient(to bottom, 
+        #f4f1ea 0%, 
+        #e6e1d7 100%);
     border-radius: 8px;
     padding: 30px;
     text-align: left;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    border: 1px solid #d1d1d1;
+    box-shadow: 
+        inset 0 1px 3px rgba(0,0,0,0.1),
+        0 1px 0 rgba(255,255,255,0.9);
     display: flex;
     align-items: center;
     gap: 20px;
@@ -66,13 +134,19 @@ header {
     text-decoration: none;
     color: inherit;
     cursor: pointer;
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.1);
 }
 
 .app-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    text-decoration: none;
-    color: inherit;
+    transform: translateY(-1px);
+    background: linear-gradient(to bottom, 
+        #f8f5ee 0%, 
+        #eae5db 100%);
+    box-shadow: 
+        inset 0 1px 3px rgba(0,0,0,0.1),
+        0 2px 4px rgba(0,0,0,0.05),
+        0 1px 0 rgba(255,255,255,0.9);
 }
 
 .app-icon {
@@ -84,40 +158,22 @@ header {
     justify-content: center;
     margin-right: 10px;
     position: relative;
-    background: #f8f8f8;
+    z-index: 1;
+}
+
+.app-icon img {
+    width: 160px;
+    height: 160px;
     border-radius: 24px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
-.app-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    padding: 0;
-    border-radius: 24px;
-}
-
-.app-icon::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 50%;
-    background: linear-gradient(to bottom, 
-        rgba(255,255,255,0.4) 0%,
-        rgba(255,255,255,0.1) 50%,
-        rgba(255,255,255,0) 100%);
-    border-radius: 24px 24px 0 0;
-    pointer-events: none;
+.app-icon:hover {
+    transform: scale(1.02);
 }
 
 .app-info {
     flex-grow: 1;
-}
-
-.app-icon:hover {
-    transform: scale(1.02);
 }
 
 .app-name {
@@ -125,6 +181,7 @@ header {
     font-weight: 500;
     margin-bottom: 10px;
     color: #333;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
 }
 
 .app-description {
@@ -132,6 +189,7 @@ header {
     color: #666;
     margin-bottom: 15px;
     line-height: 1.5;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
 }
 
 .price {
@@ -174,29 +232,205 @@ header {
 
 footer {
     text-align: center;
-    padding: 30px 20px;
+    padding: 20px 0 40px;
     color: #666;
     font-size: 14px;
-    background: linear-gradient(to bottom, #333333 0%, #222222 100%);
-    border-top: 1px solid #000;
+    background: #fff;
+    margin-top: auto;
 }
 
 .footer-links {
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 .footer-links a {
-    color: #999;
+    color: #666;
     text-decoration: none;
     margin: 0 10px;
-    text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
+    transition: color 0.2s ease;
 }
 
 .footer-links a:hover {
-    color: #ccc;
+    color: #333;
 }
 
 footer p {
-    color: #999;
-    text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
+    color: #666;
+    margin: 0;
+}
+
+/* Add subtle noise texture */
+@media (min-resolution: 2dppx) {
+    body {
+        background-size: 6px 6px;
+    }
+}
+
+/* Responsive breakpoints */
+@media (max-width: 768px) {
+    .app-icon {
+        width: 120px;
+        height: 120px;
+    }
+
+    .app-icon img {
+        width: 120px;
+        height: 120px;
+        border-radius: 18px;
+    }
+
+    .app-name {
+        font-size: 20px;
+    }
+
+    .app-description {
+        font-size: 14px;
+    }
+
+    main {
+        padding: 0 20px;
+    }
+
+    header {
+        padding: 60px 20px;
+        gap: 20px;
+    }
+
+    .header-logo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .logo {
+        font-size: 36px;
+    }
+
+    .tagline {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 600px) {
+    .app-card {
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .app-icon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .app-icon img {
+        width: 80px;
+        height: 80px;
+        border-radius: 16px;
+    }
+
+    .app-name {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    .app-description {
+        font-size: 13px;
+        margin-bottom: 12px;
+    }
+
+    .price {
+        padding: 2px 12px;
+        font-size: 12px;
+    }
+
+    .apps {
+        gap: 20px;
+        padding: 20px 0;
+    }
+
+    header {
+        padding: 40px 20px;
+        gap: 15px;
+    }
+
+    .header-logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .logo {
+        font-size: 32px;
+    }
+
+    .tagline {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 0 10px; /* Minimum padding for texture */
+    }
+
+    main {
+        padding: 0 15px;
+    }
+
+    header {
+        padding: 30px 15px;
+        gap: 12px;
+    }
+
+    .header-logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .logo {
+        font-size: 28px;
+    }
+
+    .tagline {
+        font-size: 16px;
+    }
+
+    .app-card {
+        padding: 15px;
+        gap: 12px;
+    }
+
+    .app-icon {
+        width: 64px;
+        height: 64px;
+        margin-right: 5px;
+    }
+
+    .app-icon img {
+        width: 64px;
+        height: 64px;
+        border-radius: 12px;
+    }
+
+    footer {
+        padding: 15px 0 30px;
+        font-size: 12px;
+    }
+
+    .footer-links {
+        margin-top: 8px;
+    }
+
+    .footer-links a {
+        margin: 0 8px;
+    }
+}
+
+/* Ensure container never gets too narrow */
+@media (max-width: 340px) {
+    body {
+        padding: 0 5px;
+    }
+    
+    .container {
+        min-width: 300px;
+    }
 } 

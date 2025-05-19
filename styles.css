@@ -31,6 +31,10 @@ body {
     padding: 0 min(5vw, 40px);
 }
 
+body.subpage .container {
+    min-height: 0;
+}
+
 body::before {
     content: '';
     position: fixed;

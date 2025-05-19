@@ -7,18 +7,38 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         .privacy-content {
-            background: #fff;
+            background: linear-gradient(to bottom, #ffffff 0%, #f2f2f2 100%);
             padding: 40px;
-            border-radius: 5px;
+            border-radius: 8px;
             margin: 40px 0;
+            border: 1px solid #d1d1d1;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
         
         .privacy-content h2 {
-            margin: 20px 0 10px;
+            font-size: 20px;
+            font-weight: 500;
+            color: #333;
+            margin: 25px 0 15px;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.8);
+        }
+
+        .privacy-content h2:first-child {
+            margin-top: 0;
         }
         
         .privacy-content p {
             margin-bottom: 15px;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .privacy-content small {
+            color: #999;
+            display: block;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
         }
     </style>
 </head>
@@ -36,19 +56,31 @@
             <p>At Mr. Horrible, LLC, we take your privacy seriously. We believe in being transparent about our practices and protecting your personal information.</p>
 
             <h2>Information Collection</h2>
-            <p>We collect minimal information necessary for our apps to function. None of our apps collect personal information unless explicitly stated. Some apps may use macOS system preferences or settings which are stored locally on your computer.</p>
+            <p>Our apps are designed with privacy in mind. They collect only the minimum information necessary to function properly. Most of our apps operate entirely on your Mac, storing preferences locally using macOS's standard user defaults system.</p>
 
-            <h2>Data Usage</h2>
-            <p>Any data collected is used solely for the purpose of providing and improving our services. We do not sell or share your information with third parties.</p>
+            <h2>Data Storage</h2>
+            <p>All app preferences and settings are stored locally on your Mac. We don't maintain any external servers for storing your data.</p>
 
             <h2>Analytics</h2>
-            <p>We may use basic, anonymized analytics to understand how our apps are used and to improve them. This data cannot be traced back to individual users.</p>
+            <p>We use basic, anonymized analytics to understand how our apps are used and to improve them. This includes:</p>
+            <ul>
+                <li>Basic app usage statistics</li>
+                <li>Crash reports (if you opt-in)</li>
+                <li>macOS version information</li>
+            </ul>
+            <p>All analytics data is anonymized and cannot be traced back to individual users.</p>
 
             <h2>Updates</h2>
-            <p>Our apps check for updates using a secure connection to our server. No personal information is transmitted during this process.</p>
+            <p>Our apps check for updates using a secure connection to our update server. No personal information is transmitted during this process.</p>
+
+            <h2>Mac App Store</h2>
+            <p>When purchasing through the Mac App Store, all transactions are handled by Apple. We never have access to your payment information.</p>
+
+            <h2>Third-Party Services</h2>
+            <p>Our apps do not integrate with any third-party services unless explicitly stated in the app description.</p>
 
             <h2>Contact Us</h2>
-            <p>If you have any questions about our privacy policy, please contact us at privacy@misterhorrible.com</p>
+            <p>If you have any questions about our privacy practices, please contact us at privacy@misterhorrible.com</p>
 
             <p><small>Last updated: January 2024</small></p>
         </div>
@@ -59,8 +91,7 @@
             <p>&copy; 2024 Mr. Horrible, LLC. All rights reserved.</p>
             <div class="footer-links">
                 <a href="index.html">Home</a>
-                <a href="mailto:support@misterhorrible.com">Support</a>
-                <a href="https://twitter.com/mrhorrible">Twitter</a>
+                <a href="mailto:info@mr-horrible.com">Support</a>
             </div>
         </div>
     </footer>

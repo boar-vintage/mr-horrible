@@ -97,12 +97,13 @@ header {
 }
 
 .logo {
-    font-size: 42px;
+    font-size: 60px;
     font-weight: 600;
     letter-spacing: -1px;
-    color: #000;
+    color: #1b1b1b;
     margin-bottom: 8px;
     line-height: 1;
+    text-shadow: 0 1px 0 #6b6b6b;
 }
 
 .tagline {

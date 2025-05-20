@@ -5,7 +5,8 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
@@ -13,19 +14,24 @@ html, body {
     flex-direction: column;
 }
 
+a {
+    color: #505bd2;
+    text-decoration: none;
+}
+
+
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 1.6;
     color: #333;
     background: #e2e2e2;
     -webkit-font-smoothing: antialiased;
-    background-image: 
-        repeating-linear-gradient(45deg, 
-            rgba(255,255,255, 0.1) 0px,
-            rgba(255,255,255, 0.1) 1px,
+    background-image:
+        repeating-linear-gradient(45deg,
+            rgba(255, 255, 255, 0.1) 0px,
+            rgba(255, 255, 255, 0.1) 1px,
             transparent 1px,
-            transparent 3px
-        ),
+            transparent 3px),
         linear-gradient(to bottom, #e8e8e8 0%, #d8d8d8 100%);
     background-attachment: fixed;
     padding: 0 min(5vw, 40px);
@@ -42,10 +48,10 @@ body::before {
     left: 0;
     right: 0;
     height: 100vh;
-    background: 
-        radial-gradient(circle at 50% 50%, 
-            rgba(255,255,255,0.1) 0%,
-            rgba(255,255,255,0) 60%);
+    background:
+        radial-gradient(circle at 50% 50%,
+            rgba(255, 255, 255, 0.1) 0%,
+            rgba(255, 255, 255, 0) 60%);
     pointer-events: none;
 }
 
@@ -57,12 +63,13 @@ body::before {
     padding: 0;
     position: relative;
     background: #fff;
-    box-shadow: 
-        1px 0 0 rgba(0,0,0,0.1),
-        -1px 0 0 rgba(0,0,0,0.1);
+    box-shadow:
+        1px 0 0 rgba(0, 0, 0, 0.1),
+        -1px 0 0 rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    min-width: 320px; /* Ensure minimum width for content */
+    min-width: 320px;
+    /* Ensure minimum width for content */
     min-height: 100vh;
 }
 
@@ -123,35 +130,33 @@ header {
 }
 
 .app-card {
-    background: linear-gradient(to bottom, 
-        #f4f1ea 0%, 
-        #e6e1d7 100%);
+    background: linear-gradient(to bottom,
+            #f4f1ea 0%,
+            #e6e1d7 100%);
     border-radius: 8px;
     padding: 30px;
     text-align: left;
-    box-shadow: 
-        inset 0 1px 3px rgba(0,0,0,0.1),
-        0 1px 0 rgba(255,255,255,0.9);
+    box-shadow:
+        inset 0 1px 3px rgba(0, 0, 0, 0.1),
+        0 1px 0 rgba(255, 255, 255, 0.9);
     display: flex;
     align-items: center;
     gap: 20px;
     transition: all 0.2s ease;
     text-decoration: none;
-    color: inherit;
-    cursor: pointer;
     position: relative;
-    border: 1px solid rgba(0,0,0,0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .app-card:hover {
     transform: translateY(-1px);
-    background: linear-gradient(to bottom, 
-        #f8f5ee 0%, 
-        #eae5db 100%);
-    box-shadow: 
-        inset 0 1px 3px rgba(0,0,0,0.1),
-        0 2px 4px rgba(0,0,0,0.05),
-        0 1px 0 rgba(255,255,255,0.9);
+    background: linear-gradient(to bottom,
+            #f8f5ee 0%,
+            #eae5db 100%);
+    box-shadow:
+        inset 0 1px 3px rgba(0, 0, 0, 0.1),
+        0 2px 4px rgba(0, 0, 0, 0.05),
+        0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .app-icon {
@@ -170,7 +175,7 @@ header {
     width: 160px;
     height: 160px;
     border-radius: 24px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .app-icon:hover {
@@ -186,7 +191,7 @@ header {
     font-weight: 500;
     margin-bottom: 10px;
     color: #333;
-    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .app-description {
@@ -194,7 +199,7 @@ header {
     color: #666;
     margin-bottom: 15px;
     line-height: 1.5;
-    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .price {
@@ -205,16 +210,16 @@ header {
     border-radius: 100px;
     font-size: 13px;
     font-weight: 600;
-    text-shadow: 0 -1px 0 rgba(0,0,0,0.2);
-    box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
     border: 1px solid #1976D2;
     transition: all 0.2s ease;
 }
 
 .price:hover {
     background: linear-gradient(to bottom, #5dbfff 0%, #2196F3 100%);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2), 
-                inset 0 0 0 1px rgba(255,255,255,0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
 .price.free {
@@ -373,7 +378,8 @@ footer p {
 
 @media (max-width: 480px) {
     body {
-        padding: 0 10px; /* Minimum padding for texture */
+        padding: 0 10px;
+        /* Minimum padding for texture */
     }
 
     main {
@@ -434,8 +440,90 @@ footer p {
     body {
         padding: 0 5px;
     }
-    
+
     .container {
         min-width: 300px;
     }
-} 
+}
+
+.app-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notify-link {
+    color: #505bd2;
+    text-decoration: underline;
+    font-weight: 500;
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    border-radius: 0;
+}
+
+.notify-link:hover {
+    color: #2a36a8;
+    text-decoration: underline;
+    background: none;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 24px;
+    z-index: 1000;
+    border-radius: 8px;
+}
+
+.modal-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 999;
+}
+
+.modal-content {
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(to bottom, #f4f1ea 0%, #e6e1d7 100%);
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+    padding: 32px 24px 24px 24px;
+    min-width: 320px;
+    max-width: 90vw;
+    min-height: 180px;
+    border: 1px solid #d1d1d1;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #888;
+    cursor: pointer;
+    z-index: 3;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: #333;
+}
+
+form {
+    width: 100%;
+}

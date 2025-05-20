@@ -8,6 +8,15 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="favicon.png">
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QSZEG6E674"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QSZEG6E674');
+</script>
 <body">
     <div class="container">
         <header>
@@ -22,7 +31,7 @@
 
         <main>
             <section class="apps">
-                <a href="#" class="app-card">
+                <a href="https://apps.apple.com/us/app/bear-markdown-notes/id1091189122?mt=12" class="app-card">
                     <div class="app-icon">
                         <img src="dibs_icon.png" alt="Dibs icon" width="96" height="96">
                     </div>
@@ -33,7 +42,7 @@
                     </div>
                 </a>
 
-                <a href="#" class="app-card">
+                <a href="https://apps.apple.com/us/app/bear-markdown-notes/id1091189122?mt=12" class="app-card">
                     <div class="app-icon">
                         <img src="cym2.png" alt="Call Your Mothers" width="96" height="96">
                     </div>
@@ -44,26 +53,60 @@
                     </div>
                 </a>
 
-                <a href="#" class="app-card">
+                <div class="app-card">
                     <div class="app-icon">
                         <img src="coming_soon_rounded.png" alt="Mystery app icon" width="96" height="96">
                     </div>
                     <div class="app-info">
                         <h2 class="app-name">Something Horrible</h2>
                         <p class="app-description">Our most diabolical utility yet. Coming soon...</p>
-                        <span class="price coming-soon">Coming Soon</span>
+                        <div class="app-actions" style="display:inline-flex;align-items:center;gap:10px;">
+                          <button class="price coming-soon notify-modal-btn" type="button">Notify me</button>
+                        </div>
                     </div>
-                </a>
+                </div>
             </section>
         </main>
 
         <footer>
             <p>&copy; 2024 Mr. Horrible, LLC. All rights reserved.</p>
             <div class="footer-links">
-                <a href="mailto:info@mr-horrible.com">Support</a>
+                <a href="mailto:info@mr-horrible.com">info@mr-horrible.com</a>
                 <a href="privacy.html">Privacy Policy</a>
             </div>
         </footer>
     </div>
+    <div class="modal-backdrop"></div>
+
+    <!-- Modal HTML -->
+    <div id="notify-modal" class="modal" style="display:none;">
+      <div class="modal-content">
+        <button class="modal-close" type="button" aria-label="Close">&times;</button>
+        <h2>Get Notified</h2>
+        <form action="https://formspree.io/f/xyzwvplo" method="POST">
+          <label>
+            Your email:<br>
+            <input type="email" name="email" required style="width:100%;margin-bottom:10px;">
+          </label><br>
+          <label>
+            Your message:<br>
+            <textarea name="message" style="width:100%;min-height:80px;"></textarea>
+          </label><br>
+          <button type="submit" class="price" style="margin-top:10px;">Send</button>
+        </form>
+      </div>
+    </div>
+    <script>
+    // Modal open/close logic
+    const modal = document.getElementById('notify-modal');
+    const openBtn = document.querySelector('.notify-modal-btn');
+    const closeBtn = document.querySelector('.modal-close');
+    const backdrop = document.querySelector('.modal-backdrop');
+    if (openBtn && modal && closeBtn && backdrop) {
+      openBtn.addEventListener('click', () => { modal.style.display = 'block'; backdrop.style.display = 'block'; });
+      closeBtn.addEventListener('click', () => { modal.style.display = 'none'; backdrop.style.display = 'none'; });
+      backdrop.addEventListener('click', () => { modal.style.display = 'none'; backdrop.style.display = 'none'; });
+    }
+    </script>
 </body>
 </html> 

@@ -21,7 +21,7 @@
     <div class="container">
         <header>
             <div class="header-logo">
-                <img src="imgs/logo-96x96.png" alt="Mr. Horrible, LLC logo">
+                <img id="header-logo-img" src="imgs/logo-96x96-2x.png" alt="Mr. Horrible, LLC logo">
             </div>
             <div class="header-text">
                 <h1 class="logo">Mr. Horrible</h1>
@@ -33,7 +33,7 @@
             <section class="apps">
                 <a href="https://apps.apple.com/us/app/bear-markdown-notes/id1091189122?mt=12" class="app-card">
                     <div class="app-icon">
-                        <img src="imgs/dibs-icon-96x96.png" alt="Dibs icon" width="96" height="96">
+                        <img src="imgs/dibs-icon-160x160-2x.png" alt="Dibs icon" width="96" height="96">
                     </div>
                     <div class="app-info">
                         <h2 class="app-name">Dibs</h2>
@@ -107,6 +107,34 @@
       closeBtn.addEventListener('click', () => { modal.style.display = 'none'; backdrop.style.display = 'none'; });
       backdrop.addEventListener('click', () => { modal.style.display = 'none'; backdrop.style.display = 'none'; });
     }
+
+    // Logo swap on app card hover with delays
+    const logoImg = document.getElementById('header-logo-img');
+    const appCards = document.querySelectorAll('.app-card');
+    const originalLogo = 'imgs/logo-96x96-2x.png';
+    const happyLogo = 'imgs/logo-happy-96x96-2x.png';
+    let happyTimeout = null;
+    let revertTimeout = null;
+    appCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        if (revertTimeout) {
+          clearTimeout(revertTimeout);
+          revertTimeout = null;
+        }
+        happyTimeout = setTimeout(() => {
+          if (logoImg) logoImg.src = happyLogo;
+        }, 250);
+      });
+      card.addEventListener('mouseleave', () => {
+        if (happyTimeout) {
+          clearTimeout(happyTimeout);
+          happyTimeout = null;
+        }
+        revertTimeout = setTimeout(() => {
+          if (logoImg) logoImg.src = originalLogo;
+        }, 2000);
+      });
+    });
     </script>
 </body>
 </html> 
